@@ -118,6 +118,10 @@ h1, h2, h3, h4, ul{
     margin: 2%;
 }
 
+.tab-item {
+    cursor: pointer;
+}
+
 .content-wrap {
     max-width: 1240px;
     margin: 0 auto;
