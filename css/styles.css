@@ -472,7 +472,7 @@ h1, h2, h3, h4, ul{
 
     .table td,
     .table th {
-        padding: 5px 15px;
+        padding: 5px 12px;
         font-size: 0.9rem;
     }
 
@@ -492,4 +492,3 @@ h1, h2, h3, h4, ul{
         border-bottom: none;
     }
 }
-
