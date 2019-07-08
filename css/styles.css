@@ -560,4 +560,12 @@ h1, h2, h3, h4, ul{
         margin: 100px auto;
         min-height: 290px;
     }
+    
+    .movies-list {
+        margin-bottom: 15px;
+    }
 }
+
+
+
+
