@@ -1,74 +1,77 @@
-const movies = [
-    {
-        title: 'Avengers: Infinity War',
-        img: 'img/avengers.jpg',
-        release: 2018
-    },
+/*jshint esversion: 6 */
 
-    {
-        title: 'Incredibles 2',
-        img: 'img/incredibles.jpg',
-        release: 2018
-    },
+// Modal -> trailers
+const modal = document.querySelectorAll('.modal');
+const avengersModal = document.querySelector('#avengers-modal');
+const incrediblesModal = document.querySelector('#incredibles-modal');
+const spidermanModal = document.querySelector('#spiderman-modal');
+const blackPantherModal = document.querySelector('#black-panther-modal');
 
-    {
-        title: 'Spider-Man: Into the Spider-Verse',
-        img: 'img/spiderman.jpg',
-        release: 2018
-    },
+// Trailer buttons
+const avengersBtn = document.querySelector('.avengers-btn');
+const incrediblesBtn = document.querySelector('.incredibles-btn');
+const spidermanBtn = document.querySelector('.spiderman-btn');
+const blackPantherBtn = document.querySelector('.black-panther-btn');
 
-    {
-        title: 'Black Panther',
-        img: 'img/black-panther.jpg',
-        release: 2018
-    }
-];
+// Button click events -> show trailers when clicked
+avengersBtn.addEventListener('click', function() {
+    avengersModal.style.display = 'block';
+});
 
-const movieItems = document.querySelector('#all-movies');
+incrediblesBtn.addEventListener('click', function() {
+    incrediblesModal.style.display = 'block';
+});
 
-function showMovies() {
-    movies.forEach(function(movie){
-        movieItems.innerHTML += `<div class="movies-list">
-                                <img src="${movie.img}" alt="${movie.title}">
-                                <h4>${movie.title}</h4>
-                                </div>`;
+spidermanBtn.addEventListener('click', function() {
+    spidermanModal.style.display = 'block';
+});
+
+blackPantherBtn.addEventListener('click', function() {
+    blackPantherModal.style.display = 'block';
+});
+
+// Close modal
+const closeModal = document.querySelectorAll('.close');
+
+closeModal.forEach(function(item) {
+    item.addEventListener('click', function(){
+        for(i = 0; i < modal.length; i++) {
+            modal[i].style.display = 'none';
+        }
     });
-}
-
-showMovies();
-/*
-                                '<div class="movies-list">'
-                                + '<img src="' + movie.img + '" alt="' + movie.title + '">'
-                                + '<h4>' + movie.title + '</h4>'
-                                + '<p>' + movie.release + '</p>'
-                                + '</div>';*/
-
+});
 
 
 // Show and hide content
-const tabItems = document.querySelectorAll('.tab-item');
+const tabs = document.querySelectorAll('.tab-item');
 const tabContent = document.querySelectorAll('.tab-content');
 
-
-function selectItem(e) {
+function selectedTab() {
+    // Call remove background and show
     removeBackground();
     removeShow();
     // Add background to current tab
     this.classList.add('selected');
-
-    const tabContentItem = document.querySelector(`#${this.id}-content`);
-
-    tabContentItem.classList.add('show');
+    // Grab the content by the ID, example = <div id="tab1-content"></div>
+    const contentID = document.querySelector(`#${this.id}-content`);
+    // Show hidden content
+    contentID.classList.add('show');
 }
 
 // Remove background from other tabs
 function removeBackground() {
-    tabItems.forEach(item => item.classList.remove('selected'));
+    tabs.forEach(function(item) {
+        item.classList.remove('selected');
+    }); 
 }
-
+// Remove show
 function removeShow() {
-    tabContent.forEach(item => item.classList.remove('show'));
+    tabContent.forEach(function(item) {
+        item.classList.remove('show');
+    }); 
 }
 
 // Listen for click
-tabItems.forEach(item => item.addEventListener('click', selectItem));
+tabs.forEach(function(item) {
+    item.addEventListener('click', selectedTab);
+});
