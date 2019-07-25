@@ -53,7 +53,7 @@ function selectedTab() {
     // Add background to current tab
     this.classList.add('selected');
     // Grab the content by the ID, example = <div id="tab1-content"></div>
-    const contentID = document.querySelector(`#${this.id}-content`);
+    var contentID = document.querySelector('#'.concat(this.id, '-content'));
     // Show hidden content
     contentID.classList.add('show');
 }
